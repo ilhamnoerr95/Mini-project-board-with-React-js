@@ -18,6 +18,7 @@ const Modals = () => {
     group: "",
     desc: "",
   });
+
   // eslint-disable-next-line no-unused-vars
   const handleGroup = (e, input) => {
     let value = e.target.value;
@@ -31,7 +32,7 @@ const Modals = () => {
       setTimeout(() => {
         setShow(false);
         navigate("/todo");
-      }, 1500);
+      }, 500);
     }
   };
 
