@@ -40,7 +40,7 @@ const Modals = () => {
       <Button onClick={handleShow}>
         <span>+</span> Add New Group
       </Button>
-      <Modal id="myModal" show={show} onHide={handleClose}>
+      <Modal className="myModal" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Create New Group</Modal.Title>
         </Modal.Header>
