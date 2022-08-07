@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 // eslint-disable-next-line no-unused-vars
 import { submitRegister as register } from "redux/Auth/Auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 function Register() {
   // eslint-disable-next-line no-unused-vars
@@ -36,8 +38,13 @@ function Register() {
   return (
     <>
       <nav>
-        <Link to="/" className="mx-3 my-3">
-          Back
+        <Link to="/" className="mx-3 ">
+          <FontAwesomeIcon
+            icon={faArrowCircleLeft}
+            color="#4DB5BC"
+            size="xl"
+            className="me-2 my-2"
+          />
         </Link>
       </nav>
       <form id="form" className="needs-validation login" noValidate>

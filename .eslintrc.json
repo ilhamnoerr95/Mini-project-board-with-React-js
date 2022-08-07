@@ -30,7 +30,8 @@
         "react/react-in-jsx-scope": "off",
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
-        "semi": [ 0]
+        "semi": [ 0],
+        "react/prop-types": "off"
      
     }
 }

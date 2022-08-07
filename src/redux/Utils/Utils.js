@@ -20,7 +20,7 @@ export const utilities = createSlice({
 
 export const { actionModal, actionProgressBar } = utilities.actions;
 
-export const selectModal = (state) => state.utils.modal;
-export const selectProgress = (state) => state.utils.modal;
+export const selectModal = (state) => state.Utils.modal;
+export const selectProgress = (state) => state.Utils.progressBar;
 
 export default utilities.reducer;
