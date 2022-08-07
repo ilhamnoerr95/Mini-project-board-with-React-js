@@ -21,7 +21,7 @@ export const getGroup = () => async (dispatch, state) => {
   };
   axios(config)
     .then((response) => {
-      console.log(response.data);
+      //   console.log(response.data);
       dispatch(setTodos(response.data));
     })
     .catch((error) => {
@@ -55,6 +55,57 @@ export const addGroup = (title, description) => async () => {
       console.log(error.response.data.error);
     });
 };
+
+// GET TASK
+// eslint-disable-next-line no-unused-vars
+export const getTask = (id) => async (dispatch) => {
+  var config = {
+    method: "GET",
+    url: konfigurasi.api.baseUrl + `todos/${id}/items}`,
+    headers: {
+      accept: "application/json",
+      Authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
+      "Content-Type": "application/json",
+    },
+  };
+  axios(config)
+    .then((response) => {
+      console.log(response.data);
+      //   dispatch(setTodos(response.data));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+// add TASK
+// eslint-disable-next-line no-unused-vars
+export const addTask = (name, progress_percentage, id) => async (dispatch) => {
+  console.log(name, typeof progress_percentage);
+  let data = {
+    name,
+    progress_percentage,
+  };
+  var config = {
+    method: "POST",
+    url: konfigurasi.api.baseUrl + `todos/${id}/items`,
+    headers: {
+      accept: "application/json",
+      Authorization: "Bearer " + JSON.parse(localStorage.getItem("token")),
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+  axios(config)
+    .then((response) => {
+      console.log(response.data);
+      //   dispatch(setTodos(response.data));
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
 export const todos = createSlice({
   name: "Todos",
   initialState,
