@@ -1,0 +1,14 @@
+.box {
+    padding: 16px;
+    gap: 8px;
+
+    width: 326px;
+    border: 1px solid #01959F;
+    border-radius: 4px;
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+}

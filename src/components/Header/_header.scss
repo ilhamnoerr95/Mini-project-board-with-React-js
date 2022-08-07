@@ -1,0 +1,41 @@
+
+.navbar {
+    border-bottom: 1px solid #E0E0E0 ;
+
+    span{
+        font-weight: 700;
+    }  
+}
+
+.btn {
+    border-radius:10px;
+    background-color: #2F959F;
+    font-weight: 700;
+    font-size: 12px;  
+    width: 138px;
+    span{
+        font-weight: 700;     
+    } 
+}
+
+#myModal{
+    .modal-header{
+        border-bottom: hidden!important;
+    }
+    .modal-footer{
+        border-top: hidden!important;
+
+    }
+    .close {
+        background-color: #ffffff!important;
+        color: black;
+        border: 1px solid #E0E0E0;
+    }
+    .inputGroup{
+        border: 2px solid #EDEDED;
+        border-radius: 8px;
+    }
+}
+
+
+
