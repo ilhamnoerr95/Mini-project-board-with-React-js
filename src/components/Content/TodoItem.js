@@ -1,40 +1,38 @@
-import { useState } from "react";
+// eslint-disable-next-line no-unused-vars
+import { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { useSelector, useDispatch } from "react-redux";
 
 import { Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { addTask } from "redux/Todos/Todos";
+// eslint-disable-next-line no-unused-vars
+import { addTask, getTask } from "redux/Todos/Todos";
 
 const TodoItem = ({ data, text, handleTask }) => {
   const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
   const [show, setShow] = useState(false);
-  // eslint-disable-next-line no-unused-vars
   const [todo_id, setTodoId] = useState("");
+
   const handleClose = () => setShow(false);
+  const handleShow = (param) => {
+    setShow(true);
+    setTodoId(param.id);
+    console.log(param.id);
+  };
+
   // eslint-disable-next-line no-unused-vars
-  let clickTask = (param) => {
+  let clickTask = () => {
     // console.log(param.id);
     if (text.task && text.progress && show) {
       setShow(false);
-      dispatch(addTask(text.task, parseInt(text.progress), param.id));
-    }
-    if (!show) {
-      setShow(true);
-      setTodoId(param.id);
-      console.log(param.id);
+      dispatch(addTask(text.task, parseInt(text.progress), todo_id));
     }
   };
-  //   console.log(typeof parseInt(text.progress));
-  // console.log(todo_id);
-  //   for (let i = 0; i < dataGroup.length; i++) {
-  //     let data = dataGroup[i];
-  //     console.log(data);
-  //   }
 
-  //   console.log(clickTask);
+  // console.log(todo_id);
+
   return (
     <>
       {data.map((data) => {
@@ -45,7 +43,7 @@ const TodoItem = ({ data, text, handleTask }) => {
             <button
               type="button"
               className="bx-task"
-              onClick={() => clickTask(data)}
+              onClick={() => handleShow(data)}
             >
               <FontAwesomeIcon
                 icon={faPlusCircle}
