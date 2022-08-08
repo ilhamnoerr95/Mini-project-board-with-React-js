@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// eslint-disable-next-line no-unused-vars
 import { getGroup, setToken, selectGroup } from "redux/Todos/Todos";
 import TodoItem from "./TodoItem";
 
 import "./_todo.scss";
+// const emptyArray = [];
 
 function TodosItem() {
+  const [loadingScreen, setLoading] = useState(false);
+
+  const itemGroup = useSelector(selectGroup);
+  // eslint-disable-next-line no-unused-vars
   const dispatch = useDispatch();
   // eslint-disable-next-line no-unused-vars
-  const itemGroup = useSelector(selectGroup);
   const [text, setText] = useState({
     task: "",
     progress: "",
@@ -20,26 +25,42 @@ function TodosItem() {
     setText({ ...text, [input]: value });
   };
 
-  useEffect(() => {
-    dispatch(setToken(JSON.parse(localStorage.getItem("token"))));
+  const callFunction = () => {
     dispatch(getGroup());
-  }, [itemGroup]);
+  };
+  const callData = () => {
+    return itemGroup;
+  };
+  useEffect(() => {
+    callFunction();
+    callData();
+    setTimeout(() => {
+      setLoading(true);
+    }, 2000);
+    // dispatch(setToken(JSON.parse(localStorage.getItem("token"))));
+    // for (let i = 0; i < itemGroup.length; i++) {
+    //   let data = itemGroup[i];
+    //   console.log(data);
+    // }
+  }, []);
 
-  // console.log(text.task, text.progress);
-  // useEffect(() => {
-  //   dispatch(getGroup());
-  // }, []);
+  console.log(itemGroup);
 
   return (
     <>
       <div className="container-fluid row">
-        <TodoItem
-          data={itemGroup}
-          setText={setText}
-          text={text}
-          handleTask={handleTask}
-        />
-        ;
+        {!loadingScreen ? (
+          <div style={{ height: "70vh" }}>
+            <div className="loader mx-auto my-auto"></div>
+          </div>
+        ) : (
+          <TodoItem
+            data={itemGroup}
+            setText={setText}
+            text={text}
+            handleTask={handleTask}
+          />
+        )}
       </div>
     </>
   );

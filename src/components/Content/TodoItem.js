@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import { useEffect, useState } from "react";
 // eslint-disable-next-line no-unused-vars
 import { useSelector, useDispatch } from "react-redux";
@@ -5,7 +6,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import { addTask } from "redux/Todos/Todos";
+// eslint-disable-next-line no-unused-vars
+import { addTask, getTask } from "redux/Todos/Todos";
 
 const TodoItem = ({ data, text, handleTask }) => {
   const dispatch = useDispatch();
@@ -20,7 +22,6 @@ const TodoItem = ({ data, text, handleTask }) => {
     console.log(param.id);
   };
 
-  useEffect(() => {});
   // eslint-disable-next-line no-unused-vars
   let clickTask = () => {
     // console.log(param.id);
@@ -31,10 +32,6 @@ const TodoItem = ({ data, text, handleTask }) => {
   };
 
   // console.log(todo_id);
-  //   for (let i = 0; i < dataGroup.length; i++) {
-  //     let data = dataGroup[i];
-  //     console.log(data);
-  //   }
 
   return (
     <>

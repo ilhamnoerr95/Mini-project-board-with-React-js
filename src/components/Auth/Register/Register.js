@@ -31,7 +31,7 @@ function Register() {
     } else {
       dispatch(register(text.nama, text.email, text.password, text.confirm));
 
-      navigate("/todo");
+      navigate("/");
     }
   };
 
